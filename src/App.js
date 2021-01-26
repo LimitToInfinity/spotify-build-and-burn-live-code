@@ -7,6 +7,7 @@ import {
   authFetch
 } from './helpers/utilities';
 
+import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Header />
         <PlaylistsContainer playlists={playlists} />
       </div>
     );
