@@ -10,6 +10,8 @@ import {
 import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
 
+const featuredPlaylistsURL = 'https://api.spotify.com/v1/browse/featured-playlists';
+
 class App extends Component {
 
   state = {
@@ -46,7 +48,7 @@ class App extends Component {
       'Content-Type': 'application/json'
     }
 
-    authFetch('https://api.spotify.com/v1/browse/featured-playlists',
+    authFetch(featuredPlaylistsURL,
       'GET',
       headers
     ).then(parseJSON)
