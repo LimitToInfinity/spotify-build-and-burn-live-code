@@ -1,0 +1,22 @@
+.playlist-card {
+  width: 200px;
+  height: 300px;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.playlist-details > h2 {
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.playlist-details > p {
+  margin-bottom: 0.5rem;
+}
+
+.playlist-card > img {
+  width: 100%;
+}
