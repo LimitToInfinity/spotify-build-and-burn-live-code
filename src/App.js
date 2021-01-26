@@ -7,8 +7,14 @@ import {
   authFetch
 } from './helpers/utilities';
 
+import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
+
 class App extends Component {
-  
+
+  state = {
+    playlists: []
+  }
+
   componentDidMount() {
     this.getSpotifyToken();
   }
@@ -43,12 +49,17 @@ class App extends Component {
       'GET',
       headers
     ).then(parseJSON)
-      .then(console.log)
+      .then(({ playlists: { items } }) => {
+        this.setState({ playlists: items });
+      })
   }
   
   render() {
+    const { playlists } = this.state;
+
     return (
       <div className="App">
+        <PlaylistsContainer playlists={playlists} />
       </div>
     );
   }
