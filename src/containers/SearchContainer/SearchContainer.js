@@ -23,6 +23,7 @@ class SearchContainer extends Component {
 
   handleSearch = () => {
     const { searchTerm } = this.state;
+    const { history } = this.props;
 
     const headers = {
       Authorization: `Bearer ${localStorage.spotify_token}`,
@@ -36,7 +37,11 @@ class SearchContainer extends Component {
       'GET',
       headers
     ).then(parseJSON)
-      .then(console.log);
+      .then(({ artists: { items }}) => {
+        history.push(`/search?q=${searchTerm}`,
+          { searchTerm, artist: items[0]  }
+        );
+      });
   }
 
   render() {

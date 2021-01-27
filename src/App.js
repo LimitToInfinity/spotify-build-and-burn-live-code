@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -9,6 +10,7 @@ import {
 
 import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
+import ArtistContainer from './containers/ArtistContainer/ArtistContainer';
 
 const featuredPlaylistsURL = 'https://api.spotify.com/v1/browse/featured-playlists';
 
@@ -62,8 +64,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
-        <PlaylistsContainer playlists={playlists} />
+        <Route path="/" render={(routerProps) => {
+          return <Header {...routerProps} />
+        }} />
+        <Route exact path="/" render={(_) => {
+          return <PlaylistsContainer playlists={playlists} />
+        }} />
+        <Route path="/search" render={(routerProps) => {
+          return <ArtistContainer {...routerProps} />
+        }} />
       </div>
     );
   }

@@ -1,0 +1,10 @@
+.tracks-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tracks-container-title {
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding-left: 2rem;
+}
